@@ -1,1 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Rurangamirwa - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255,255,255,0.05) 0px,
+                    rgba(255,255,255,0.05) 2px,
+                    transparent 2px,
+                    transparent 4px
+                );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.2rem;
+            font-size: 1rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0ff;
+            transition: 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding-top: 8rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            margin-bottom: 0.5rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid, .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card, .education-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .skill-card:hover, .education-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 10px 20px rgba(0,255,255,0.05);
+        }
+
+        .education-card h3 {
+            color: #0ff;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-card p {
+            margin: 0.4rem 0;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav a {
+                margin: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-heading {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">SAMUEL R.</div>
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 class="animate">Samuel Rurangamirwa</h1>
+        <p class="animate">Software Engineer | Full Stack Developer</p>
+        <p class="animate">Building digital solutions with precision</p>
+    </section>
+
+    <section id="about">
+        <div class="content">
+            <h2 class="section-heading animate">About Me</h2>
+            <p class="animate" style="animation-delay: 0.2s;">
+                I'm a passionate software engineer specializing in full-stack development with 5+ years of experience.
+                My expertise spans across modern web technologies, cloud infrastructure, and mobile development.
+                I thrive on solving complex problems and delivering efficient, scalable solutions that make an impact.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="content">
+            <h2 class="section-heading animate">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>Frontend Development</h3>
+                    <p>React.js, Next.js, JavaScript, TypeScript, Tailwind CSS</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-node"></i>
+                    <h3>Backend Development</h3>
+                    <p>Node.js, Django, Laravel, MongoDB, PostgreSQL</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Development</h3>
+                    <p>React Native</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud & DevOps</h3>
+                    <p>AWS, Firebase, Docker, Nginx</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Other Skills</h3>
+                    <p>REST APIs, GraphQL, CI/CD, Git & GitHub</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="content">
+            <h2 class="section-heading animate">Education</h2>
+            <div class="education-grid">
+                <div class="education-card animate">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Bachelor of Software engineer</h3>
+                    <p>African Leadership University</p>
+                    <p>2024 - 2027</p>
+                    <p>Still Learning</p>
+                </div>
+                <div class="education-card animate" style="animation-delay: 0.2s;">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Software Development</h3>
+                    <p>World Mission High school</p>
+                    <p>2019 - 2022</p>
+                    <p>Specialized computer system and software programming</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content">
+            <h2 class="section-heading animate">Contact</h2>
+            <div class="contact-info">
+                <h2>Contact Me</h2>
+                <p><i class="fas fa-phone"></i> Phone: +250 788 284 364</p>
+                <p><i class="fas fa-envelope"></i> Email: samuelrurangamirwa@gmail.com</p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/alusamuel" target="_blank">GitHub</a></p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/samuel-rurangamirwa" target="_blank">LinkedIn</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced intersection observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
